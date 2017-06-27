@@ -6,7 +6,7 @@ session_start();
 $db['host'] = "localhost";  // DBサーバのURL
 $db['user'] = "root";  // ユーザー名
 $db['pass'] = "";  // ユーザー名のパスワード
-$db['dbname'] = "loginManagemen";  // データベース名
+$db['dbname'] = "karori-keisan-system";  // データベース名
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
