@@ -3,17 +3,11 @@ require 'password.php';
 // セッション開始
 session_start();
 
-//ローカル
-$db['host'] = "localhost";  // DBサーバのURL
-$db['user'] = "root";  // ユーザー名
-$db['pass'] = "";  // ユーザー名のパスワード
-$db['dbname'] = "karori-keisan-system";  // データベース名
-
 //サーバ開発
 $dbServer = '127.0.0.1';
-$dbUser = $_SERVER['MYSQL_USER'];
-$dbPass = $_SERVER['MYSQL_PASSWORD'];
-$dbName = $_SERVER['MYSQL_DB'];
+$dbUser = $_SERVER['root'];
+$dbPass = $_SERVER[''];
+$dbName = $_SERVER['karori-keisan-system'];
 
 // エラーメッセージの初期化
 $errorMessage = "";
