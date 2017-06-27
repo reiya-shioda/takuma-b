@@ -124,7 +124,7 @@ if (isset($_POST["signUp"])) {
             </fieldset>
         </form>
         <br>
-        <form action="index.php">
+        <form action="login.php">
             <input type="submit" value="戻る">
         </form>
     </body>
@@ -132,7 +132,7 @@ if (isset($_POST["signUp"])) {
 
 <footer id="footer">
   <br><br>
-<a href="Main.php">ホームへ</a><br>
+<a href="main.php">ホームへ</a><br>
   <p><small></small></p>
 </footer>
 

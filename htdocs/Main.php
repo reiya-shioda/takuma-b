@@ -275,6 +275,6 @@ $num5 = 8;
 
 <footer id="footer">
   <br>
-<a href="Logout.php">ログアウト</a><br><br>
+<a href="logout.php">ログアウト</a><br><br>
 </footer>
 </html>

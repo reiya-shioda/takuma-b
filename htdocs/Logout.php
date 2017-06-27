@@ -62,7 +62,7 @@ $_SESSION = array();
 
 <footer id="footer">
   <br><br>
-<a href="Main.php">ホームへ</a><br>
+<a href="main.php">ホームへ</a><br>
   <p><small></small></p>
 </footer>
 <!--/.container--></div>

@@ -129,7 +129,7 @@ if (isset($_POST["login"])) {
             </fieldset>
         </form>
         <br>
-        <form action="SignUp.php">
+        <form action="signup.php">
             <fieldset>          
                 <legend>新規登録フォーム</legend>
                 <input type="submit" value="新規登録">
