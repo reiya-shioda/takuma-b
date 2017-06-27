@@ -1,5 +1,5 @@
 ﻿<?php
-require 'password.php';   // password_verfy()はphp 5.5.0以降の関数のため、バージョンが古くて使えない場合に使用
+require 'password.php'; 
 // セッション開始
 session_start();
 
@@ -14,7 +14,7 @@ $errorMessage = "";
 // ログインボタンが押された場合
 if (isset($_POST["login"])) {
     // 1. ユーザIDの入力チェック
-    if (empty($_POST["username"])) {  // emptyは値が空のとき
+    if (empty($_POST["username"])) {
         $errorMessage = 'ユーザー名が未入力です。';
     } else if (empty($_POST["password"])) {
         $errorMessage = 'パスワードが未入力です。';
@@ -64,15 +64,11 @@ if (isset($_POST["login"])) {
                     $errorMessage = 'ユーザー名あるいはパスワードに誤りがあります。';
                 }
             } else {
-                // 4. 認証成功なら、セッションIDを新規に発行する
-                // 該当データなし
                 $errorMessage = 'ユーザー名あるいはパスワードに誤りがあります。';
             }
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
-            //$errorMessage = $sql;
-            // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
-            // echo $e->getMessage();
+
         }
     }
 }
@@ -142,5 +138,4 @@ if (isset($_POST["login"])) {
   <br><br>
 
 </footer>
-<!--/.container--></div>
 </html>

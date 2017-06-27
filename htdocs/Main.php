@@ -188,38 +188,41 @@ $num5 = 8;
          <body>
           <tr>
 <td>1位</td>
-          <td>水泳・ランニング</td>
-          <td>
+          <td><Div Align="left">水泳・ランニング</Div></td>
+          <td><Div Align="left">
           <?php
          $ans3 = sprintf('%.1f',($num2*$num5*$_SESSION["WEIGHT"]));
           echo ($ans3)
           ?>
           (kcal/h）
+          </Div>
           </td>
           </tr>
           
           <tr>
 <td>2位</td>
-          <td>ジョギング</td>
-          <td>
+          <td><Div Align="left">ジョギング</Div></td>
+          <td><Div Align="right">
           <?php
           $ans2 = sprintf('%.1f',($num2*$num4*$_SESSION["WEIGHT"]));
           echo ($ans2)
           ?>
           (kcal/h）
+          </Div>
           </td>
           </tr>
           
           <tr>
 <td>3位</td>
-          <td>徒歩・サイクリング</td>
-          <td>
+          <td><Div Align="left">徒歩・サイクリング</Div></td>
+          <td><Div Align="right">
            <?php
  $ans1 = sprintf('%.1f',($num2*$num3*$_SESSION["WEIGHT"]));
           echo ($ans1)
           
           ?>
           (kcal/h）
+          </Div>
           </td>
           </tr>
 </table>

@@ -1,5 +1,5 @@
 ﻿<?php
-require 'password.php';   // password_hash()はphp 5.5.0以降の関数のため、バージョンが古くて使えない場合に使用
+require 'password.php';   
 // セッション開始
 session_start();
 
@@ -127,9 +127,9 @@ if (isset($_POST["signUp"])) {
 </html>
 
 <footer id="footer">
-  <br>br>
+  <br><br>
 <a href="Login.php">ホームへ</a><br>
   <p><small></small></p>
 </footer>
-<!--/.container--></div>
+
 </html>
