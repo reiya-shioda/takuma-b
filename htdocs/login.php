@@ -84,7 +84,11 @@ if (isset($_POST["login"])) {
     <meta charset="utf-8">
     <meta name="author" content="田隈Gr　B班">
     <meta name="keywords" content="実験用">
-    <link rel="stylesheet" href="デザイン.css">
+    <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
+    <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
+    
+    <link rel="stylesheet" media="all" type="text/css" href="デザインs.css" />
+    
     <title>PM演習</title>
   </script>
   </head>
