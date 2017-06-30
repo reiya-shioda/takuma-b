@@ -3,11 +3,17 @@ require 'password.php';
 // セッション開始
 session_start();
 
+//ローカル
+//$dbServer = '127.0.0.1';
+//$dbUser = 'root';
+//$dbPass = '';
+//$dbName = 'mydb';
+
 //サーバ公開
 $dbServer = '127.0.0.1';
-$dbUser = $_SERVER['root'];
-$dbPass = $_SERVER[''];
-$dbName = $_SERVER['mydb'];
+$dbUser = $_SERVER['MYSQL_USER'];
+$dbPass = $_SERVER['MYSQL_PASSWORD'];
+$dbName = $_SERVER['MYSQL_DB'];
 
 # MySQL用のDSN文字列です。
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
