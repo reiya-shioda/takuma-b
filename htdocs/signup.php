@@ -6,6 +6,10 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
+$db = new PDO($dsn, $dbUser, $dbPass);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
@@ -35,11 +39,11 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $dbuser, $dbpass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
-            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
+            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
             $userid =$pdo->lastinsertid();
 
             $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。パスワードは '. $password. ' です。会員番号はログインに必要です。'; 
