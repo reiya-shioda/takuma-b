@@ -4,6 +4,11 @@ require 'password.php';
 session_start();
 
 require_once 'database_conf.php';
+require_once 'h.php';
+
+$db = new PDO($dsn, $dbUser, $dbPass);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
