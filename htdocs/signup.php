@@ -6,12 +6,9 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
-try {
+
 $db = new PDO($dsn, $dbUser, $dbPass);
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-}
+
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
@@ -48,8 +45,8 @@ if (isset($_POST["signUp"])) {
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
             $userid =$pdo->lastinsertid();
 
-            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。パスワードは '. $password. ' です。会員番号はログインに必要です。'; 
-             // ログイン時に使用するIDとパスワード
+            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。会員番号はログインに必要です。'; 
+             // ログイン時に使用するID
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
@@ -109,18 +106,18 @@ if (isset($_POST["signUp"])) {
                 <legend>新規登録フォーム</legend>
                 <div><font color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></font></div>
                 <div><font color="#0000ff"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></font></div>
-                <label for="username">*ユーザー名</label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
+                <label for="username">*ユーザー名         </label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {echo htmlspecialchars($_POST["username"], ENT_QUOTES);} ?>">
                 <br>
-                <label for="password">*パスワード</label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
+                <label for="password">*パスワード         </label><input type="password" id="password" name="password" value="" placeholder="パスワードを入力">
                 <br>
                 <label for="password2">*パスワード(確認用)</label><input type="password" id="password2" name="password2" value="" placeholder="再度パスワードを入力">
                 <br>
-                <label for="gender">性別</label><input type="radio" id="gender" name="gender" value="1">男性
+                <label for="gender">性別               </label><input type="radio" id="gender" name="gender" value="1">男性
                 <input type="radio" id="gender" name="gender" value="2">女性
                 <br>
-                <label for="height">身長(cm)</label><input type="text" id="height" name="height" value="" placeholder="整数で入力">
+                <label for="height">身長(cm)           </label><input type="text" id="height" name="height" value="" placeholder="整数で入力">
                 <br>
-                <label for="weight">体重(kg)</label><input type="text" id="weight" name="weight" value="" placeholder="整数で入力">
+                <label for="weight">体重(kg)           </label><input type="text" id="weight" name="weight" value="" placeholder="整数で入力">
                 <br>
                 *入力必須
                 <br>
