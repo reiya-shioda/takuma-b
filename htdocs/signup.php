@@ -6,8 +6,6 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
-$db = new PDO($dsn, $dbUser, $dbPass);
-
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
