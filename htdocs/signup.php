@@ -5,9 +5,6 @@ session_start();
 
 require_once 'database_conf.php';
 
-# MySQL用のDSN文字列です。
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
