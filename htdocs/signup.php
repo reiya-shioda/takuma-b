@@ -6,8 +6,10 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
-
-$db = new PDO($dsn, $dbUser, $dbPass);
+$db['host'] = "127.0.0.1";  // DBサーバのURL
+$db['user'] = "root";  // ユーザー名
+$db['pass'] = "";  // ユーザー名のパスワード
+$db['dbname'] = "mydb"; 
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
