@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `menu` (
-  `id` int(5) NOT NULL,
+  `number` int(5) NOT NULL,
   `menumei` varchar(20) CHARACTER SET utf8 NOT NULL,
   `karori-` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -36,7 +36,7 @@ CREATE TABLE `menu` (
 -- テーブルのデータのダンプ `menu`
 --
 
-INSERT INTO `menu` (`id`, `menumei`, `karori-`) VALUES
+INSERT INTO `menu` (`number`, `menumei`, `karori-`) VALUES
 (1, '牛丼', 708),
 (2, '海鮮丼', 717),
 (3, '中華丼', 661),
@@ -81,7 +81,7 @@ CREATE TABLE `userdata` (
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`number`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -91,7 +91,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `number` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
