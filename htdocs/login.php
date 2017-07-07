@@ -17,14 +17,10 @@ if (isset($_POST["login"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
 
-    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         // 入力したユーザIDを格納
         $username = $_POST["username"];
 
-        // 2. ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-
-        // 3. エラー処理
+        // エラー処理
         require_once 'database_conf.php';
         require_once 'h.php';
         
