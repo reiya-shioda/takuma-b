@@ -3,16 +3,8 @@ require 'password.php';
 // セッション開始
 session_start();
 
-//サーバ開発
-$dbServer = '127.0.0.1';
-$dbUser = $_SERVER['MYSQL_USER'];
-$dbPass = $_SERVER['MYSQL_PASSWORD'];
-$dbName = $_SERVER['MYSQL_DB'];
-
-# MySQL用のDSN文字列です。
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-
-$db = new PDO($dsn, $dbUser, $dbPass);
+require_once 'database_conf.php';
+require_once 'h.php';
 
 // エラーメッセージの初期化
 $errorMessage = "";
@@ -63,7 +55,7 @@ if (isset($_POST["login"])) {
                     }
                     $_SESSION["WEIGHT"] = $row['weight'];
                     
-                    header("Location: main.php");  // メイン画面へ遷移
+                    header("Location: Main.php");  // メイン画面へ遷移
                     exit();  // 処理終了
                 } else {
                     // 認証失敗
@@ -88,7 +80,6 @@ if (isset($_POST["login"])) {
     <meta name="keywords" content="実験用">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
     <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
-    
     <link rel="stylesheet" media="all" type="text/css" href="デザインs.css" />
     
     <title>PM演習</title>

@@ -22,7 +22,6 @@ $_SESSION = array();
     <meta name="keywords" content="実験用">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
     <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
-    
     <link rel="stylesheet" media="all" type="text/css" href="デザインs.css" />
     
     <title>PM演習</title>
@@ -66,6 +65,8 @@ $_SESSION = array();
 
 <footer id="footer">
   <br><br>
+<a href="login.php">ホームへ</a><br>
+  <p><small></small></p>
 </footer>
 <!--/.container--></div>
 </html>

@@ -29,9 +29,7 @@ $num5 = 8;
     <meta name="keywords" content="実験用">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
     <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
-    
     <link rel="stylesheet" media="all" type="text/css" href="デザインs.css" />
-    
     <title>PM演習</title>
   </script>
   </head>
@@ -148,25 +146,29 @@ $num5 = 8;
 <head>
 </head>
          <body>
-          <td>徒歩・サイクリング<br>
+          <td><Div Align="left">徒歩・サイクリング</Div>
+          <Div Align="right">
           <?php
           $num7 = sprintf('%.2f',($num1/($num2*$num3*$_SESSION["WEIGHT"])));
           echo ($num7)
           ?>
-          時間<br>
+          時間</Div><br>
           
-          ジョギング<br>
-           <?php
+          <Div Align="left">ジョギング</Div>
+          <Div Align="right">
+          <?php
           $num8 = sprintf('%.2f',($num1/($num2*$num4*$_SESSION["WEIGHT"])));
           echo ($num8)
           ?>
-          時間<br>
-          水泳・ランニング<br>
-           <?php
+          時間</Div><br>
+          
+          <Div Align="left">水泳・ランニング</Div>
+          <Div Align="right">
+          <?php
           $num9 = sprintf('%.2f',($num1/($num2*$num5*$_SESSION["WEIGHT"])));
           echo ($num9)
           ?>
-          時間<br>
+          時間</Div><br>
           </td>
 
 <form method="POST">
@@ -193,7 +195,7 @@ $num5 = 8;
           <tr>
 <td>1位</td>
           <td><Div Align="left">水泳・ランニング</Div></td>
-          <td><Div Align="left">
+          <td><Div Align="right">
           <?php
          $ans3 = sprintf('%.1f',($num2*$num5*$_SESSION["WEIGHT"]));
           echo ($ans3)

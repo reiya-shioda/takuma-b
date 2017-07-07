@@ -5,7 +5,7 @@ session_start();
 
 require_once 'database_conf.php';
 require_once 'h.php';
-$db = new PDO($dsn, $dbUser, $dbPass);
+
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
@@ -35,13 +35,15 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            $stmt = $bd->prepare("INSERT INTO userdata(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
+            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
-            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
-            $userid =$bd->lastinsertid();
+            $stmt = $pdo->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
-            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。会員番号はログインに必要です。'; 
-             // ログイン時に使用するID
+            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
+            $userid =$pdo->lastinsertid();
+
+            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。パスワードは '. $password. ' です。会員番号はログインに必要です。'; 
+             // ログイン時に使用するIDとパスワード
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
             // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
@@ -58,12 +60,10 @@ if (isset($_POST["signUp"])) {
   <head>
     <meta charset="utf-8">
     <meta name="author" content="田隈Gr　B班">
-    <meta name="keywords" content="演習用">
+    <meta name="keywords" content="実験用">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
     <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
-    
     <link rel="stylesheet" media="all" type="text/css" href="デザインs.css" />
-    
     <title>PM演習</title>
   </script>
   </head>
@@ -124,11 +124,12 @@ if (isset($_POST["signUp"])) {
             <input type="submit" value="戻る">
         </form>
     </body>
+</html>
 
 <footer id="footer">
   <br><br>
-<a href="main.php">ホームへ</a><br>
-
+<a href="login.php">ホームへ</a><br>
+  <p><small></small></p>
 </footer>
 
 </html>
