@@ -138,10 +138,10 @@ $num5 = 8;
  <h2>消費したいカロリーを入力してください。</h2>
 
 
-  <table class="type01">
+   <table class="type01" width="400">
     <thead>
     <tr>
-     <th scope="cols">運動量</th>
+     <th scope="cols" colspan="2">運動量</th>
     </tr>
     </thead>
   
@@ -149,29 +149,30 @@ $num5 = 8;
 <head>
 </head>
          <body>
-          <td><Div Align="left">徒歩・サイクリング</Div>
-          <Div Align="right">
+          <td><Div Align="left">
+          徒歩・サイクリング<br><br>
+          ジョギング<br><br>
+          水泳・ランニング<br><br>
+          </Div></td>
+          
+          <td><br>
           <?php
           $num7 = sprintf('%.2f',($num1/($num2*$num3*$_SESSION["WEIGHT"])));
           echo ($num7)
           ?>
-          時間</Div><br>
+          時間<br><br>
           
-          <Div Align="left">ジョギング</Div>
-          <Div Align="right">
           <?php
           $num8 = sprintf('%.2f',($num1/($num2*$num4*$_SESSION["WEIGHT"])));
           echo ($num8)
           ?>
-          時間</Div><br>
+          時間<br><br>
           
-          <Div Align="left">水泳・ランニング</Div>
-          <Div Align="right">
           <?php
           $num9 = sprintf('%.2f',($num1/($num2*$num5*$_SESSION["WEIGHT"])));
           echo ($num9)
           ?>
-          時間</Div><br>
+          時間<br>
           </td>
 
 <form method="POST">
@@ -198,40 +199,37 @@ $num5 = 8;
           <tr>
 <td>1位</td>
           <td><Div Align="left">水泳・ランニング</Div></td>
-          <td><Div Align="right">
+          <td>
           <?php
          $ans3 = sprintf('%.1f',($num2*$num5*$_SESSION["WEIGHT"]));
           echo ($ans3)
           ?>
           (kcal/h）
-          </Div>
           </td>
           </tr>
           
           <tr>
 <td>2位</td>
           <td><Div Align="left">ジョギング</Div></td>
-          <td><Div Align="right">
+          <td>
           <?php
           $ans2 = sprintf('%.1f',($num2*$num4*$_SESSION["WEIGHT"]));
           echo ($ans2)
           ?>
           (kcal/h）
-          </Div>
           </td>
           </tr>
           
           <tr>
 <td>3位</td>
           <td><Div Align="left">徒歩・サイクリング</Div></td>
-          <td><Div Align="right">
+          <td>
            <?php
  $ans1 = sprintf('%.1f',($num2*$num3*$_SESSION["WEIGHT"]));
           echo ($ans1)
           
           ?>
           (kcal/h）
-          </Div>
           </td>
           </tr>
 </table>
@@ -252,24 +250,24 @@ $num5 = 8;
 </head>
          <body>
           <tr>
-<td>1位</td>
-          <td>ミートソーススパゲティ</td>
+          <td>1位</td>
+          <td><Div Align="left">ミートソーススパゲティ</Div></td>
           <td>
           768kcal
           </td>
           </tr>
           
           <tr>
-<td>2位</td>          
-<td>海鮮丼</td>
+          <td>2位</td>          
+          <td><Div Align="left">海鮮丼</Div></td>
           <td>
-         717kcal
+          717kcal
           </td>
           </tr>
           
           <tr>
-<td>3位</td>          
-<td>牛丼</td>
+          <td>3位</td>          
+          <td><Div Align="left">牛丼</Div></td>
           <td>
            708kcal
           </td>
