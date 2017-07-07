@@ -58,7 +58,7 @@ if (isset($_POST["signUp"])) {
   <head>
     <meta charset="utf-8">
     <meta name="author" content="田隈Gr　B班">
-    <meta name="keywords" content="実験用">
+    <meta name="keywords" content="演習用">
     <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1" />
     <link rel="stylesheet" media="all" type="text/css" href="デザイン.css" />
     
@@ -118,6 +118,7 @@ if (isset($_POST["signUp"])) {
                 <br>
                 <input type="submit" id="signUp" name="signUp" value="新規登録">
             </fieldset>
+        </form>
         <br>
         <form action="login.php">
             <input type="submit" value="戻る">
