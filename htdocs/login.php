@@ -27,9 +27,11 @@ if (isset($_POST["login"])) {
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-
-            $stmt = $pdo->prepare('SELECT * FROM userData WHERE id = ?');
+            $db = new PDO($dsn, $dbUser, $dbPass);
+            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $stmt = $db->prepare('SELECT * FROM userData WHERE id = ?');
             $stmt->execute(array($username));
 
             $password = $_POST["password"];
@@ -41,7 +43,7 @@ if (isset($_POST["login"])) {
                     // 入力したIDのユーザー名を取得
                     $id = $row['id'];
                     $sql = "SELECT * FROM userData WHERE id = $id";  //入力したIDからユーザー名を取得
-                    $stmt = $pdo->query($sql);
+                    $stmt = $db->query($sql);
                     foreach ($stmt as $row) {
                         $row['name'];  // ユーザー名
                     }
@@ -49,13 +51,13 @@ if (isset($_POST["login"])) {
                     
                     $id = $row['id'];
                     $sql = "SELECT * FROM userData WHERE id = $id";  //入力したIDからユーザー名を取得
-                    $stmt = $pdo->query($sql);
+                    $stmt = $db->query($sql);
                     foreach ($stmt as $row) {
                         $row['weight'];  // 体重
                     }
                     $_SESSION["WEIGHT"] = $row['weight'];
                     
-                    header("Location: Main.php");  // メイン画面へ遷移
+                    header("Location: main.php");  // メイン画面へ遷移
                     exit();  // 処理終了
                 } else {
                     // 認証失敗
