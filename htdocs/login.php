@@ -63,7 +63,7 @@ if (isset($_POST["login"])) {
                     }
                     $_SESSION["WEIGHT"] = $row['weight'];
                     
-                    header("Location: Main.php");  // メイン画面へ遷移
+                    header("Location: main.php");  // メイン画面へ遷移
                     exit();  // 処理終了
                 } else {
                     // 認証失敗
