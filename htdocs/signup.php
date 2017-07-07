@@ -14,7 +14,7 @@ $dbName = $_SERVER['MYSQL_DB'];
 # MySQL用のDSN文字列です。
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 
-$db = new PDO($dsn, $dbUser, $dbPass);
+
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
@@ -45,7 +45,7 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+            $pdo = new PDO($dsn, $dbUser, $dbPass), array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
             $stmt = $pdo->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
