@@ -30,9 +30,6 @@ if (isset($_POST["signUp"])) {
         $weight = $_POST["weight"];
         
 
-        // 2. ユーザIDとパスワードが入力されていたら認証する
-        $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-
         // 3. エラー処理
         try {
             $pdo = new PDO($dsn, $dbUser, $dbPass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
@@ -110,9 +107,9 @@ if (isset($_POST["signUp"])) {
                 <label for="gender">性別</label><input type="radio" id="gender" name="gender" value="1">男性
                 <input type="radio" id="gender" name="gender" value="2">女性
                 <br>
-                <label for="height">身長(cm)</label><input type="text" id="height" name="height" value="" placeholder="整数で入力">
+                <label for="height">身長(cm)</label><input type="text" id="height" name="height" value="<?php if (!empty($_POST["height"])) {echo htmlspecialchars($_POST["height"], ENT_QUOTES);} ?>" placeholder="整数で入力">
                 <br>
-                <label for="weight">体重(kg)</label><input type="text" id="weight" name="weight" value="" placeholder="整数で入力">
+                <label for="weight">体重(kg)</label><input type="text" id="weight" name="weight" value="<?php if (!empty($_POST["weight"])) {echo htmlspecialchars($_POST["weight"], ENT_QUOTES);} ?>" placeholder="整数で入力">
                 <br>
                 *入力必須
                 <br>
