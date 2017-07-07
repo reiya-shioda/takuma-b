@@ -17,6 +17,7 @@ if (isset($_POST["login"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
 
+if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         // 入力したユーザIDを格納
         $username = $_POST["username"];
 
