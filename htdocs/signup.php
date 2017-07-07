@@ -5,7 +5,7 @@ session_start();
 
 require_once 'database_conf.php';
 require_once 'h.php';
-
+$db = new PDO($dsn, $dbUser, $dbPass);
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
@@ -35,10 +35,6 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            $db = new PDO($dsn, $dbUser, $dbPass);
-            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
             $stmt = $bd->prepare("INSERT INTO userdata(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
