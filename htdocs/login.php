@@ -3,7 +3,17 @@ require 'password.php';
 // セッション開始
 session_start();
 
-
+      require_once 'database_conf.php';
+      require_once 'h.php';
+      try {
+        $db = new PDO($dsn, $dbUser, $dbPass);
+        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo 'データベースに接続しました';
+      } catch (PDOException $e) {
+        echo '接続できませんでした 理由: ' . h($e->getMessage());
+      }
+      
 // エラーメッセージの初期化
 $errorMessage = "";
 
@@ -21,15 +31,11 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         $username = $_POST["username"];
 
         // エラー処理
-        require_once 'database_conf.php';
-        require_once 'h.php';
-        
+                
         try {
-            $db = new PDO($dsn, $dbUser, $dbPass);
-            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo = new PDO($dsn, $dbUser, $dbPass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
             
-            $stmt = $db->prepare('SELECT * FROM userData WHERE id = ?');
+            $stmt = $pdo->prepare('SELECT * FROM userData WHERE id = ?');
             $stmt->execute(array($username));
 
             $password = $_POST["password"];
@@ -41,15 +47,13 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
                     // 入力したIDのユーザー名を取得
                     $id = $row['id'];
                     $sql = "SELECT * FROM userData WHERE id = $id";  //入力したIDからユーザー名を取得
-                    $stmt = $db->query($sql);
+                    $stmt = $pdo->query($sql);
                     foreach ($stmt as $row) {
                         $row['name'];  // ユーザー名
                     }
                     $_SESSION["NAME"] = $row['name'];
                     
-                    $id = $row['id'];
-                    $sql = "SELECT * FROM userData WHERE id = $id";  //入力したIDからユーザー名を取得
-                    $stmt = $db->query($sql);
+                    
                     foreach ($stmt as $row) {
                         $row['weight'];  // 体重
                     }
