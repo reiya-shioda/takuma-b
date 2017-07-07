@@ -35,7 +35,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
         try {
             $pdo = new PDO($dsn, $dbUser, $dbPass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
             
-            $stmt = $pdo->prepare('SELECT * FROM userData WHERE id = ?');
+            $stmt = $pdo->prepare('SELECT * FROM userdata WHERE id = ?');
             $stmt->execute(array($username));
 
             $password = $_POST["password"];
@@ -46,7 +46,7 @@ if (!empty($_POST["username"]) && !empty($_POST["password"])) {
 
                     // 入力したIDのユーザー名を取得
                     $id = $row['id'];
-                    $sql = "SELECT * FROM userData WHERE id = $id";  //入力したIDからユーザー名を取得
+                    $sql = "SELECT * FROM userdata WHERE id = $id";  //入力したIDからユーザー名を取得
                     $stmt = $pdo->query($sql);
                     foreach ($stmt as $row) {
                         $row['name'];  // ユーザー名
