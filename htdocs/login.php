@@ -12,6 +12,8 @@ $dbName = $_SERVER['MYSQL_DB'];
 # MySQL用のDSN文字列です。
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 
+$db = new PDO($dsn, $dbUser, $dbPass);
+
 // エラーメッセージの初期化
 $errorMessage = "";
 
