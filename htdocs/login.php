@@ -3,16 +3,9 @@ require 'password.php';
 // セッション開始
 session_start();
 
-      require_once 'database_conf.php';
-      require_once 'h.php';
-      try {
-        $db = new PDO($dsn, $dbUser, $dbPass);
-        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo 'データベースに接続しました';
-      } catch (PDOException $e) {
-        echo '接続できませんでした 理由: ' . h($e->getMessage());
-      }
+require_once 'database_conf.php';
+require_once 'h.php';
+
       
 // エラーメッセージの初期化
 $errorMessage = "";

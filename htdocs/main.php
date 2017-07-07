@@ -1,6 +1,9 @@
 ﻿<?php
 session_start();
 
+require_once 'database_conf.php';
+require_once 'h.php';
+
 // ログイン状態チェック
 if (!isset($_SESSION["NAME"])) {
     header("Location: logout.php");
