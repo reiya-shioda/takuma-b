@@ -39,7 +39,7 @@ if (isset($_POST["signUp"])) {
             $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $stmt = $bd->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
+            $stmt = $bd->prepare("INSERT INTO userdata(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
             $userid =$bd->lastinsertid();
@@ -122,18 +122,16 @@ if (isset($_POST["signUp"])) {
                 <br>
                 <input type="submit" id="signUp" name="signUp" value="新規登録">
             </fieldset>
-        </form>
         <br>
         <form action="login.php">
             <input type="submit" value="戻る">
         </form>
     </body>
-</html>
 
 <footer id="footer">
   <br><br>
 <a href="main.php">ホームへ</a><br>
-  <p><small></small></p>
+
 </footer>
 
 </html>
