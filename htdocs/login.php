@@ -4,7 +4,6 @@ require 'password.php';
 session_start();
 
 
-
 // エラーメッセージの初期化
 $errorMessage = "";
 
