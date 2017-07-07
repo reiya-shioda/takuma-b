@@ -3,8 +3,6 @@ require 'password.php';
 // セッション開始
 session_start();
 
-
-
 // エラーメッセージの初期化
 $errorMessage = "";
 
