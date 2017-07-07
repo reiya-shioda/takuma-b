@@ -6,15 +6,6 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
-$dbServer = '127.0.0.1';
-$dbUser = $_SERVER['MYSQL_USER'];
-$dbPass = $_SERVER['MYSQL_PASSWORD'];
-$dbName = $_SERVER['MYSQL_DB'];
-
-# MySQL用のDSN文字列です。
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-
-
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
@@ -44,12 +35,14 @@ if (isset($_POST["signUp"])) {
 
         // 3. エラー処理
         try {
-            $pdo = new PDO($dsn, $dbuser, $dbpass, array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+            $db = new PDO($dsn, $dbUser, $dbPass);
+            $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $stmt = $pdo->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
+            $stmt = $bd->prepare("INSERT INTO userData(name, password,gender,height,weight) VALUES (?, ?, ?, ?, ?)");
 
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  
-            $userid =$pdo->lastinsertid();
+            $userid =$bd->lastinsertid();
 
             $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。会員番号はログインに必要です。'; 
              // ログイン時に使用するID
