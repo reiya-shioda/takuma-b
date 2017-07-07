@@ -6,10 +6,15 @@ session_start();
 require_once 'database_conf.php';
 require_once 'h.php';
 
-$db['host'] = "127.0.0.1"; 
-$db['user'] = $_SERVER['MYSQL_USER']; 
-$db['pass'] = $_SERVER['MYSQL_PASSWORD'];
-$db['dbname'] =$_SERVER['MYSQL_DB'];
+$dbServer = '127.0.0.1';
+$dbUser = $_SERVER['MYSQL_USER'];
+$dbPass = $_SERVER['MYSQL_PASSWORD'];
+$dbName = $_SERVER['MYSQL_DB'];
+
+# MySQL用のDSN文字列です。
+$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
+
+$db = new PDO($dsn, $dbUser, $dbPass);
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";

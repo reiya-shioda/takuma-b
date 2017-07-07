@@ -59,15 +59,13 @@ $_SESSION = array();
         <h1>ログアウト画面</h1>
         <div><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
         <ul>
-            <button><a href="index.php">ログイン画面に戻る</a></button>
+            <button><a href="login.php">ログイン画面に戻る</a></button>
         </ul>
     </body>
 </html>
 
 <footer id="footer">
   <br><br>
-<a href="main.php">ホームへ</a><br>
-  <p><small></small></p>
 </footer>
 <!--/.container--></div>
 </html>

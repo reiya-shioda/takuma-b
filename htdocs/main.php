@@ -3,7 +3,7 @@ session_start();
 
 // ログイン状態チェック
 if (!isset($_SESSION["NAME"])) {
-    header("Location: Logout.php");
+    header("Location: logout.php");
     exit;
 }
 if( empty($_POST['x']) ){
