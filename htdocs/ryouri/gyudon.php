@@ -84,19 +84,19 @@ $num5 = 8;
     <tr>
     <th scope="row"><img src="http://3.bp.blogspot.com/-AZ5s5IkpST0/UchCAFG7aYI/AAAAAAAAVHo/KnlKBNG3vXw/s800/food_gyudon.png" max-width="52.7" max-height="46.5" align="left" max-hspace="30"><br><br>牛丼</th>
        <td>並盛1杯</td>
-      <td>ごはん　210g<br>
+      <td><Div Align="left">ごはん　210g<br>
           牛肩肉　100g<br>
           みりん　 9g<br>
           たまねぎ 50g<br>
           日本酒  15g<br>
        しょうゆ 13g<br>
 さとう  1g<br>
-かつおだし  40g<br>　
+かつおだし  40g<br></Div>
       
  
 
 </td>
-<td>353kcal<br>
+<td><Div Align="right">353kcal<br>
     286kcal<br>
     20kcal<br>
     19kcal<br>
@@ -104,7 +104,7 @@ $num5 = 8;
     9kcal<br>
     4kcal<br>
     1kcal<br>
-  
+  </Div>
 </td>
 <td> 708kcal</td>
       <td>徒歩・サイクリング<br>
