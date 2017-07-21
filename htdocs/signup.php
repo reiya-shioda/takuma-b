@@ -39,7 +39,7 @@ if (isset($_POST["signUp"])) {
             $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT),$gender,$height,$weight));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
             $userid =$pdo->lastinsertid();
 
-            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。<span style="color:#FF0000;">会員番号はログインに必要です。</span>'; 
+            $signUpMessage = '登録が完了しました。あなたの会員番号は '. $userid. ' 番です。会員番号はログインに必要です。'; 
              // ログイン時に使用するIDとパスワード
         } catch (PDOException $e) {
             $errorMessage = 'データベースエラー';
